@@ -1,5 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import UpdateList from "./UpdateList";
+import DeleteList from './DeleteList';
 
 function Lists(props) {
   // Initialize an empty array for list rows
@@ -12,6 +14,23 @@ function Lists(props) {
         <td>{element.id}</td>
         <td>{element.title}</td>
         <td>{element.author}</td>
+        <td><UpdateList
+            elementId={element.id}
+            singledata={props.singledata}
+            getList={props.getList}
+            updateList={props.updateList}
+            handleChange={props.handleChange}
+          />
+        </td>
+        <td>
+          <DeleteList
+            elementId={element.id}
+            singledata={props.singledata}
+            getList={props.getList}
+            deleteList={props.deleteList}
+          />
+        </td>
+
       </tr>
     );
   });
